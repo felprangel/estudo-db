@@ -2,6 +2,7 @@ const path = require("path");
 
 exports.getAllUsers = (req, res) => {
   console.log("usernames will be logged here - wip");
+  res.send();
 };
 
 exports.getNewUser = (req, res) => {
