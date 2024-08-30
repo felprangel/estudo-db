@@ -12,4 +12,5 @@ exports.getNewUser = (req, res) => {
 
 exports.createUser = (req, res) => {
   console.log("username to be saved: ", req.body.username);
+  res.send();
 };
