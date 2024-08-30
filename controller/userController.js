@@ -1,8 +1,10 @@
 const path = require("path");
+const db = require("../db/queries");
 
-exports.getAllUsers = (req, res) => {
-  console.log("usernames will be logged here - wip");
-  res.send();
+exports.getAllUsers = async (req, res) => {
+  const usernames = await db.getAllUsernames();
+  console.log("usernames: ", usernames);
+  res.send("Usernames: " + usernames.map((user) => user.username).join(", "));
 };
 
 exports.getNewUser = (req, res) => {
@@ -10,7 +12,8 @@ exports.getNewUser = (req, res) => {
   res.sendFile(filePath);
 };
 
-exports.createUser = (req, res) => {
-  console.log("username to be saved: ", req.body.username);
-  res.send();
+exports.createUser = async (req, res) => {
+  const { username } = req.body;
+  await db.insertUsername(username);
+  res.redirect("/");
 };
