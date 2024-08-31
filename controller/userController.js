@@ -24,3 +24,8 @@ exports.createUser = async (req, res) => {
   await db.insertUsername(username);
   res.redirect("/");
 };
+
+exports.deleteUser = async (req, res) => {
+  await db.deleteUser();
+  res.redirect("/");
+};
