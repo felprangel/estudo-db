@@ -25,4 +25,5 @@ module.exports = {
   getAllUsernames,
   insertUsername,
   getUsernamesBySearch,
+  deleteUser,
 };
